@@ -21,14 +21,14 @@ This extension contributes no settings.
 
 ### 0.5.0  Initial release.
 
-# Setup
+# SETUP
 
 
 1. [Prepare to Publish Extensions](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)
 1. [Package Extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#packaging-extensions)
 1. install vsix: ``` code --install-extension my-extension-0.0.1.vsix ```
 
-# Usage : git init example
+# USAGE : git init example
 
 1. create a [GitHub Personal Access Token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
 1. create a ``` token.secret ``` file containing the token and user.  Make sure to ignore this file in your source control
@@ -39,20 +39,27 @@ This extension contributes no settings.
 1. create [gitinit.cmd](https://gist.github.com/joshbooker/b34b172fcbb0995336b69a3424b39ab1#file-gitinit-cmd)
     ```
     @echo off
+    rem ## GET SECRETS FROM IGNORED LOCAL FILE ##
     for /f "delims== tokens=1,2" %%G in (token.secret) do set %%G=%%H
+
+    rem ## GIT INIT LOCAL REPO - CREATE IGNORE AND README - STAGE - COMMIT ##
     cd %1
     git init
     echo "README" > README.md   
-    (echo /bin && echo /obj && echo *.log && echo *.dacpac && echo *.bacpac && echo !/refs/*.dacpac && echo *.secret) > .gitignore
+    (echo /bin && echo /obj && echo *.log && echo *.dacpac && echo *.bacpac && echo !/refs/*.dacpac) > .gitignore
     git add .
-    echo "Authorization: token %Token%"
-
-    curl -X POST -i -H "Authorization: token %Token%" https://api.github.com/user/repos -d "{\"name\": \"%1\"}"
     git commit -m "first commit"
 
+    rem ## CREATE REMOTE REPO ON GITHUB - PERSONAL ACCESS TOKEN REQUIRED ##
+    curl -X POST -i -H "Authorization: token %Token%" https://api.github.com/user/repos -d "{\"name\": \"%1\"}"
+
+    rem ## ADD REMOTE AND PUSH TO GITHUB ##
     git remote add origin https://github.com/%User%/%1.git
     git branch -M main
     git push -u origin main
+
+    rem ## CREATE GIT SUBMODULE IN PARENT PROJECT REPO ##
+    git submodule add https://github.com/%User%/%1.git
     ```
 1. edit vscode user tasks to call your extension
     * ``` ctrl + shift + P ```
@@ -85,3 +92,5 @@ This extension contributes no settings.
             ]
     }
     ```
+    # DEMO
+    ![alt demo](https://joshbooker.github.io/DEMO.gif)
