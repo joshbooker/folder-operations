@@ -93,4 +93,5 @@ This extension contributes no settings.
     }
     ```
     # DEMO
+    [alt demo](https://joshbooker.github.io/DEMO.gif)
     ![alt demo](https://joshbooker.github.io/DEMO.gif)
