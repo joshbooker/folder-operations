@@ -1,10 +1,11 @@
 {
 	"name": "folder-operations",
 	"displayName": "Folder Operations",
-	"description": "Demonstrate the use of an extension command to populate a task or launch variable.",
+	"publisher": "joshbooker",
+	"description": "Forked from: https://github.com/ArturoDent/folder-operations Demonstrate the use of an extension command to populate a task or launch variable.",
 	"version": "0.5.0",
 	"engines": {
-		"vscode": "^1.50.0"
+		"vscode": "^1.48.0"
 	},
 	"categories": [
 		"Other"
@@ -27,7 +28,7 @@
 		"test": "node ./test/runTest.js"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.50.0",
+		"@types/vscode": "^1.48.0",
 		"@types/glob": "^7.1.1",
 		"@types/mocha": "^7.0.2",
 		"@types/node": "^13.11.0",
