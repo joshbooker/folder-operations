@@ -21,3 +21,20 @@ This extension contributes no settings.
 
 ### 0.5.0  Initial release.
 
+## Setup
+
+
+1. [Prepare to Publish Extensions](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)
+1. [Package Extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#packaging-extensions)
+1. install vsix ``` code --install-extension my-extension-0.0.1.vsix ```
+
+## Usage : git init example
+
+1. [create gitinit.cmd](https://gist.github.com/joshbooker/b34b172fcbb0995336b69a3424b39ab1#file-gitinit-cmd)
+1. edit user tasks to call extension
+    * ``` ctrl + shift + P ```
+    * type ``` tasks  ```
+    * select ``` Open User Tasks ```  
+    * paste in [tasks.json](https://gist.github.com/joshbooker/b34b172fcbb0995336b69a3424b39ab1#file-tasks-json)
+
+    <script src="https://gist.github.com/joshbooker/b34b172fcbb0995336b69a3424b39ab1.js"></script>
