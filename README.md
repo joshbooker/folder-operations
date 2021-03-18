@@ -59,6 +59,7 @@ This extension contributes no settings.
     git push -u origin main
 
     rem ## CREATE GIT SUBMODULE IN PARENT PROJECT REPO ##
+    cd ..
     git submodule add https://github.com/%User%/%1.git
     ```
 1. edit vscode user tasks to call your extension
