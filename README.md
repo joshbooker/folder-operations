@@ -37,7 +37,7 @@ This extension contributes no settings.
     User=GitHubUserName
     ```
 1. create [gitinit.cmd](https://gist.github.com/joshbooker/b34b172fcbb0995336b69a3424b39ab1#file-gitinit-cmd)
-    ```
+    ```batchFile
     @echo off
     rem ## GET SECRETS FROM IGNORED LOCAL FILE ##
     for /f "delims== tokens=1,2" %%G in (token.secret) do set %%G=%%H
@@ -67,7 +67,7 @@ This extension contributes no settings.
     * type ``` tasks  ```
     * select ``` Open User Tasks ```  
     * paste in [tasks.json](https://gist.github.com/joshbooker/b34b172fcbb0995336b69a3424b39ab1#file-tasks-json)
-    ```
+    ```json
     {
         // See https://go.microsoft.com/fwlink/?LinkId=733558
         // for the documentation about the tasks.json format
